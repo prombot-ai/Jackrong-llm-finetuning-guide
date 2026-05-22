@@ -1,17 +1,3 @@
----
-license: mit
-tags:
-  - qwen
-  - mtp
-  - gguf
-  - llama.cpp
-  - quantization
-  - codex-skill
-language:
-  - en
-  - zh
----
-
 # Qwen MTP GGUF Conversion Skill
 
 Agent-ready scripts and references for Qwen-family MTP/nextn GGUF releases. The workflow preflights disk/RAM/tooling, extracts compatible MTP heads from a matching source model, injects them into a target HF model, converts with llama.cpp, runs smoke tests, quantizes, and optionally uploads to Hugging Face.

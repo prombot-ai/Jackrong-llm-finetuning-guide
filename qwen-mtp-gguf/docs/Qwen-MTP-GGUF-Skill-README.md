@@ -1,17 +1,3 @@
----
-license: mit
-tags:
-- qwen
-- mtp
-- gguf
-- llama.cpp
-- quantization
-- codex-skill
-language:
-- en
-- zh
----
-
 <div style="border:1px solid #cbd5e1;border-radius:16px;box-shadow:0 10px 15px -3px rgba(0,0,0,0.05);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <div style="background:linear-gradient(135deg,#1e3a8a 0%,#0284c7 100%);padding:28px 32px;color:white;">
     <div style="font-size:13px;font-weight:700;letter-spacing:0;text-transform:uppercase;opacity:.9;">Open Agent Workflow</div>
