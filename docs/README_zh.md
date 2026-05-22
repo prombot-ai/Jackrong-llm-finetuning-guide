@@ -70,9 +70,6 @@
 | **Qwen 3** | 已排期 | 已排期 |
 | **Llama3.2-R1 (3B)** | ✅ 已包含 | ✅ 已发布 |
 | **Llama** (3.1 / 3.3) | 已排期 | 已排期 |
-| **Phi-4** | 已排期 | 已排期 |
-| **Gemma 4** | 已排期 | 已排期 |
-| **DeepSeek** | 已排期 | 已排期 |
 
 ---
 
@@ -94,6 +91,18 @@
 | **Qwen3.5 (9B)** | SFT | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
 | **Qwopus3.5 (35B)** | SFT | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
 | **Llama3.2-R1 (3B)** | RL (GPRO) | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
+
+---
+
+## Qwen MTP GGUF 转换 Skill
+
+[`qwen-mtp-gguf`](../qwen-mtp-gguf/) 子项目提供面向 agent 的 Qwen 系列 MTP/nextn GGUF 转换与发布工作流。它包含磁盘/RAM 预检、MTP head 提取、HF 模型准备、llama.cpp GGUF 转换、本地 smoke test、量化、上传/续传支持以及公开发布文档。
+
+从这里开始：
+
+- [Qwen MTP GGUF README](../qwen-mtp-gguf/README.md)
+- [Pipeline Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md)
+- [Agent Usage Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
 ---
 

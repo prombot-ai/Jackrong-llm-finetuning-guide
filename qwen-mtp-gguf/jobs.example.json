@@ -1,0 +1,14 @@
+{
+  "defaults": {
+    "work_root": "./qwen-mtp-gguf-work",
+    "quant_types": "q4_k_m,q5_k_m,q8_0,bf16"
+  },
+  "jobs": [
+    {
+      "source_repo": "owner/target-qwen-finetune",
+      "mtp_source_repo": "owner/matching-base-qwen-with-mtp",
+      "output_repo": "owner/target-qwen-mtp-gguf",
+      "filename_prefix": "target-qwen-MTP"
+    }
+  ]
+}

@@ -70,9 +70,6 @@ Below is the planned support matrix for upcoming model families:
 | **Qwen 3** | Scheduled | Scheduled |
 | **Llama3.2-R1 (3B)** | ✅ Included | ✅ Released |
 | **Llama** (3.1 / 3.3) | Scheduled | Scheduled |
-| **Phi-4** | Scheduled | Scheduled |
-| **Gemma 4** | Scheduled | Scheduled |
-| **DeepSeek** | Scheduled | Scheduled |
 
 ---
 
@@ -94,6 +91,18 @@ Below are the interactive Kaggle and Colab notebooks, organized by model archite
 | **Qwen3.5 (9B)** | SFT | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
 | **Qwopus3.5 (35B)** | SFT | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
 | **Llama3.2-R1 (3B)** | RL (GPRO) | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
+
+---
+
+## Qwen MTP GGUF Conversion Skill
+
+The [`qwen-mtp-gguf`](./qwen-mtp-gguf/) subproject provides an agent-ready workflow for Qwen-family MTP/nextn GGUF conversion and release. It includes preflight disk/RAM sizing, MTP head extraction, HF model preparation, llama.cpp GGUF conversion, local smoke tests, quantization, upload/resume support, and public release documentation.
+
+Start here:
+
+- [Qwen MTP GGUF README](./qwen-mtp-gguf/README.md)
+- [Pipeline Guide](./qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md)
+- [Agent Usage Guide](./qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
 ---
 

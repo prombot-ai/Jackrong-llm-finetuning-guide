@@ -70,9 +70,6 @@
 | **Qwen 3** | 예정됨 | 예정됨 |
 | **Llama3.2-R1 (3B)** | ✅ 포함됨 | ✅ 출시됨 |
 | **Llama** (3.1 / 3.3) | 예정됨 | 예정됨 |
-| **Phi-4** | 예정됨 | 예정됨 |
-| **Gemma 4** | 예정됨 | 예정됨 |
-| **DeepSeek** | 예정됨 | 예정됨 |
 
 ---
 
@@ -94,6 +91,18 @@
 | **Qwen3.5 (9B)** | SFT | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
 | **Qwopus3.5 (35B)** | SFT | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
 | **Llama3.2-R1 (3B)** | RL (GPRO) | [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
+
+---
+
+## Qwen MTP GGUF Conversion Skill
+
+[`qwen-mtp-gguf`](../qwen-mtp-gguf/) 하위 프로젝트는 Qwen 계열 MTP/nextn GGUF 변환 및 릴리스를 위한 agent-ready 워크플로를 제공합니다. 디스크/RAM 사전 점검, MTP head 추출, HF 모델 준비, llama.cpp GGUF 변환, 로컬 smoke test, 양자화, 업로드/재개 지원, 공개 릴리스 문서를 포함합니다.
+
+시작 지점:
+
+- [Qwen MTP GGUF README](../qwen-mtp-gguf/README.md)
+- [Pipeline Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md)
+- [Agent Usage Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
 ---
 

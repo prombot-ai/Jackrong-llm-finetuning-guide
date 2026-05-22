@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qwen MTP GGUF"
+  short_description: "Preflight, merge MTP heads, and build GGUF releases"
+  default_prompt: "Use $qwen-mtp-gguf to preflight my environment, merge Qwen MTP heads, smoke-test locally, and build GGUF quantizations."
