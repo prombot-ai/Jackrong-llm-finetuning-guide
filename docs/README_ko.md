@@ -96,13 +96,31 @@
 
 ## Qwen MTP GGUF Conversion Skill
 
-[`qwen-mtp-gguf`](../qwen-mtp-gguf/) 하위 프로젝트는 Qwen 계열 MTP/nextn GGUF 변환 및 릴리스를 위한 agent-ready 워크플로를 제공합니다. 디스크/RAM 사전 점검, MTP head 추출, HF 모델 준비, llama.cpp GGUF 변환, 로컬 smoke test, 양자화, 업로드/재개 지원, 공개 릴리스 문서를 포함합니다.
+<div align="center">
 
-시작 지점:
+[![Qwen](https://img.shields.io/badge/Model-Qwen-7C3AED?style=flat-square)](../qwen-mtp-gguf/)
+[![GGUF](https://img.shields.io/badge/Output-GGUF-0891B2?style=flat-square)](../qwen-mtp-gguf/)
+[![llama.cpp](https://img.shields.io/badge/Runtime-llama.cpp-10B981?style=flat-square)](https://github.com/ggml-org/llama.cpp)
+[![Agent Ready](https://img.shields.io/badge/Workflow-Agent--Ready-F59E0B?style=flat-square)](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
-- [Qwen MTP GGUF README](../qwen-mtp-gguf/README.md)
-- [Pipeline Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md)
-- [Agent Usage Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
+</div>
+
+[`qwen-mtp-gguf`](../qwen-mtp-gguf/) 하위 프로젝트는 호환되는 Qwen 계열 fine-tune을 MTP-enabled GGUF 릴리스로 변환하기 위한 agent-ready 워크플로입니다. 환경 사전 점검, MTP/nextn tensor 추출, HF 모델 준비, llama.cpp 변환, smoke test, 양자화, 업로드/재개 지원을 하나의 재현 가능한 pipeline으로 묶습니다.
+
+**MTP란 무엇인가요?** MTP는 일반적으로 Multi-Token Prediction을 의미하며, 추가 예측 head를 통해 모델이 미래 token을 더 넓게 예측하도록 돕는 기능입니다. 호환되는 Qwen 계열 모델에서는 GGUF 변환 전에 MTP 또는 `nextn` tensors가 올바르게 존재하고 index에 기록되어야 downstream runtime이 해당 구조를 활용할 수 있습니다.
+
+<table>
+  <tr>
+    <td><strong>Preflight first</strong><br/>대용량 다운로드 전에 RAM, 디스크, llama.cpp 도구, Hugging Face 접근 권한, config 호환성을 확인합니다.</td>
+    <td><strong>Minimal MTP extraction</strong><br/>MTP/nextn tensors가 들어 있는 source shard만 다운로드하고 target model index에 주입합니다.</td>
+  </tr>
+  <tr>
+    <td><strong>Release-grade GGUF flow</strong><br/>F16/BF16 및 일반적인 K/IQ quant 형식을 만들고 업로드 전 Qwen ChatML 로컬 smoke test를 실행합니다.</td>
+    <td><strong>Disk-aware uploading</strong><br/>대형 모델 릴리스를 위해 stream upload, resume check, retry, 업로드 확인 후 cleanup을 지원합니다.</td>
+  </tr>
+</table>
+
+**시작 지점:** [README](../qwen-mtp-gguf/README.md) · [Pipeline Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md) · [Agent Usage Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
 ---
 

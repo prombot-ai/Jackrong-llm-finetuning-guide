@@ -96,13 +96,31 @@
 
 ## Qwen MTP GGUF 转换 Skill
 
-[`qwen-mtp-gguf`](../qwen-mtp-gguf/) 子项目提供面向 agent 的 Qwen 系列 MTP/nextn GGUF 转换与发布工作流。它包含磁盘/RAM 预检、MTP head 提取、HF 模型准备、llama.cpp GGUF 转换、本地 smoke test、量化、上传/续传支持以及公开发布文档。
+<div align="center">
 
-从这里开始：
+[![Qwen](https://img.shields.io/badge/Model-Qwen-7C3AED?style=flat-square)](../qwen-mtp-gguf/)
+[![GGUF](https://img.shields.io/badge/Output-GGUF-0891B2?style=flat-square)](../qwen-mtp-gguf/)
+[![llama.cpp](https://img.shields.io/badge/Runtime-llama.cpp-10B981?style=flat-square)](https://github.com/ggml-org/llama.cpp)
+[![Agent Ready](https://img.shields.io/badge/Workflow-Agent--Ready-F59E0B?style=flat-square)](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
-- [Qwen MTP GGUF README](../qwen-mtp-gguf/README.md)
-- [Pipeline Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md)
-- [Agent Usage Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
+</div>
+
+[`qwen-mtp-gguf`](../qwen-mtp-gguf/) 子项目是一个面向 agent 的 Qwen 系列 MTP/nextn GGUF 转换与发布工作流。它把环境预检、MTP/nextn tensor 提取、HF 模型准备、llama.cpp 转换、smoke test、量化以及上传/续传支持整合成一条可复现的 pipeline。
+
+**什么是 MTP？** MTP 通常指 Multi-Token Prediction，也就是让模型通过额外预测头参与多未来 token 预测的一类能力。对于兼容的 Qwen 系列模型，MTP 或 `nextn` tensors 需要在 GGUF 转换前正确存在并写入索引，否则下游 runtime 可能无法使用这部分结构。
+
+<table>
+  <tr>
+    <td><strong>先预检再下载</strong><br/>在大文件下载前检查 RAM、磁盘、llama.cpp 工具、Hugging Face 权限和 config 兼容性。</td>
+    <td><strong>最小化 MTP 提取</strong><br/>只下载包含 MTP/nextn tensors 的源模型 shards，并将它们注入目标模型索引。</td>
+  </tr>
+  <tr>
+    <td><strong>面向发布的 GGUF 流程</strong><br/>构建 F16/BF16 和常见 K/IQ 量化格式，并在上传前运行 Qwen ChatML 本地 smoke test。</td>
+    <td><strong>节省磁盘的上传策略</strong><br/>支持 stream 上传、远端续传检查、失败重试，以及确认上传后的本地清理。</td>
+  </tr>
+</table>
+
+**从这里开始：** [README](../qwen-mtp-gguf/README.md) · [Pipeline Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md) · [Agent Usage Guide](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
 ---
 
