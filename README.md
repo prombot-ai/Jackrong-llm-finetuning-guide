@@ -1,205 +1,130 @@
 <div align="center">
 
-<p><sub><strong>OPEN-SOURCE LLM LEARNING WORKSHOP</strong></sub></p>
+# Jackrong LLM Fine-Tuning Guide
 
-<h1>Jackrong LLM Fine-Tuning Guide</h1>
+An educational, end-to-end open-source knowledge base for LLM fine-tuning,
+dataset distillation, reinforcement learning, and local deployment.
 
-<p><strong>Learn → Distill → Fine-tune → Align → Ship</strong></p>
+🌐 **Languages:** English | [中文](docs/README_zh.md) | [한국어](docs/README_ko.md) | [日本語](docs/README_ja.md)
 
-<p>
-  A hands-on knowledge base for turning raw data into reproducible training workflows<br>
-  and runnable local models.
-</p>
+🤗 **Hugging Face:** [Jackrong](https://huggingface.co/Jackrong)
 
-<p>
-  <a href="train_code/"><strong>Start training</strong></a>
-  ·
-  <a href="High-fidelity%20Dataset/"><strong>Explore datasets</strong></a>
-  ·
-  <a href="qwen-mtp-gguf/"><strong>Ship with GGUF</strong></a>
-  ·
-  <a href="https://r6410418.github.io/Jackrong-llm-finetuning-guide/"><strong>Open the product website</strong></a>
-</p>
+🌐 **Product Website:** [Explore Qwopus3.6 models and fine-tuning guides →](https://r6410418.github.io/Jackrong-llm-finetuning-guide/)
 
-<p>
-  <code>SFT</code>&nbsp;&nbsp;
-  <code>GRPO</code>&nbsp;&nbsp;
-  <code>GSPO</code>&nbsp;&nbsp;
-  <code>LoRA / QLoRA</code>&nbsp;&nbsp;
-  <code>MTP → GGUF</code>
-</p>
+<br>
 
-<p>
-  <sub>
-    English · <a href="docs/README_zh.md">中文</a> ·
-    <a href="docs/README_ko.md">한국어</a> ·
-    <a href="docs/README_ja.md">日本語</a>
-  </sub>
-</p>
+[![Unsloth](https://img.shields.io/badge/Powered%20by-Unsloth-8A2BE2?style=flat-square)](https://github.com/unslothai/unsloth)
+[![Google Colab](https://img.shields.io/badge/Environment-Google%20Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/)
+[![PyTorch](https://img.shields.io/badge/Framework-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Hugging Face](https://img.shields.io/badge/Model%20Hub-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/)
+[![LoRA PEFT](https://img.shields.io/badge/Technique-LoRA%20%2F%20PEFT-007EC6?style=flat-square)](#)
+[![Beginner Friendly](https://img.shields.io/badge/Level-Beginner%20Friendly-brightgreen?style=flat-square)](#)
 
 </div>
 
 ---
 
-<table>
-<tr>
-<td align="center" width="25%"><strong>24</strong><br><sub>CURATED DATASETS</sub></td>
-<td align="center" width="25%"><strong>5</strong><br><sub>RUNNABLE RECIPES</sub></td>
-<td align="center" width="25%"><strong>3</strong><br><sub>TRAINING METHODS</sub></td>
-<td align="center" width="25%"><strong>4</strong><br><sub>LANGUAGES</sub></td>
-</tr>
-</table>
+This repository is a growing educational resource portal for beginners and developers who want reproducible training pipelines, SFT and RL workflows including GRPO and GSPO, data preparation and distillation recipes, 16-bit export and GGUF deployment workflows, and agent-ready Qwen MTP GGUF conversion tools.
 
-## Choose your path
+## 📚 Table of Contents
 
-<table>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>01 / LEARN</strong></sub>
-  <h3>Fine-tune in your browser</h3>
-  <p>Run guided Colab or Kaggle recipes without building a local GPU environment first.</p>
-  <p><a href="train_code/"><strong>Browse training recipes →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>02 / BUILD DATA</strong></sub>
-  <h3>Distill a better dataset</h3>
-  <p>Prepare reasoning, coding, STEM, conversation, and domain data for downstream training.</p>
-  <p><a href="data_processing_code/"><strong>Explore data recipes →</strong></a></p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>03 / ALIGN</strong></sub>
-  <h3>Practice SFT, GRPO, and GSPO</h3>
-  <p>Move from supervised fine-tuning to reinforcement-learning workflows with inspectable code.</p>
-  <p><a href="train_code/README.md"><strong>Compare training methods →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>04 / SHIP</strong></sub>
-  <h3>Deploy an MTP-enabled GGUF</h3>
-  <p>Validate, convert, smoke-test, quantize, and release Qwen-family models for local inference.</p>
-  <p><a href="qwen-mtp-gguf/"><strong>Open the MTP GGUF skill →</strong></a></p>
-</td>
-</tr>
-</table>
+- [🚀 Start Here](#-start-here)
+- [🗺️ Repository Map](#️-repository-map)
+- [🏋️ Training Recipes](#️-training-recipes)
+- [✅ Supported Workflows](#-supported-workflows)
+- [🛣️ Model Support Roadmap](#️-model-support-roadmap)
+- [⚙️ Qwen MTP GGUF Conversion Skill](#️-qwen-mtp-gguf-conversion-skill)
+- [📘 Guides and Reports](#-guides-and-reports)
+- [🧠 High-Fidelity Dataset Catalog](#-high-fidelity-dataset-catalog)
+- [🤝 Open-Source Commitment](#-open-source-commitment)
+- [📚 Citation](#-citation)
 
-## One learning loop, end to end
+## 🚀 Start Here
 
-<p align="center">
-  <strong>01 · CURATE</strong>
-  &nbsp;→&nbsp;
-  <strong>02 · DISTILL</strong>
-  &nbsp;→&nbsp;
-  <strong>03 · TRAIN</strong>
-  &nbsp;→&nbsp;
-  <strong>04 · ALIGN</strong>
-  &nbsp;→&nbsp;
-  <strong>05 · SHIP</strong>
-</p>
-
-| Stage | What you can do here | Entry point |
-|---|---|---|
-| Curate | Select high-fidelity reasoning, coding, conversation, and domain data | [Dataset catalog](High-fidelity%20Dataset/) |
-| Distill | Generate or transform training data with a teacher-model workflow | [Data processing](data_processing_code/) |
-| Train | Run LoRA / QLoRA supervised fine-tuning in Colab, Kaggle, or Python | [Training lab](train_code/) |
-| Align | Explore released GRPO and GSPO reinforcement-learning recipes | [RL recipes](train_code/README.md#-reinforcement-learning-grpo--gspo) |
-| Ship | Export adapters, merge 16-bit checkpoints, and build MTP-enabled GGUF releases | [Deployment skill](qwen-mtp-gguf/) |
-
-## Training lab
-
-Five released recipes cover browser-first learning, supervised fine-tuning, and reinforcement learning.
-
-| Model | Method · environment | Run |
-|---|---|---|
-| **Qwopus3.5 27B** | `SFT` · Google Colab | [Launch notebook](https://colab.research.google.com/github/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus3-5-27b-Colab.ipynb) |
-| **Qwopus3.6 27B** | `GSPO` · Python | [Read the tutorial](train_code/Qwopus3.6-27B-GSPO/) |
-| **Qwen3.5 Neo 9B** | `SFT` · Kaggle | [Open notebook](train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
-| **Qwopus3.5 35B-A3B** | `SFT` · Kaggle | [Open notebook](train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
-| **Llama3.2-R1 3B** | `GRPO` · Kaggle | [Open notebook](train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
-
-**[Browse the complete training catalog →](train_code/README.md)**
-
-## MTP GGUF, from checkpoint to local runtime
-
-> [!TIP]
-> The [`qwen-mtp-gguf`](qwen-mtp-gguf/) subproject is an agent-ready release workflow—not just a conversion command. It checks model compatibility and machine resources, validates or injects MTP / nextn tensors, converts with llama.cpp, runs HF and GGUF smoke tests, builds a quantization matrix, and supports safer upload and resume operations.
-
-<p>
-  <a href="qwen-mtp-gguf/"><strong>Open the skill</strong></a>
-  ·
-  <a href="qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md">Read the pipeline guide</a>
-  ·
-  <a href="qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md">Use it with an agent</a>
-</p>
-
-## Resource library
-
-<table>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>DATA</strong></sub>
-  <h3>High-fidelity dataset catalog</h3>
-  <p>Twenty-four curated collections for reasoning, mathematics, code, instruction following, conversation, and domain work.</p>
-  <p><a href="High-fidelity%20Dataset/"><strong>Explore the catalog →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>GUIDES</strong></sub>
-  <h3>Long-form learning library</h3>
-  <p>Beginner walkthroughs and technical reports that connect concepts to complete training workflows.</p>
-  <p><a href="guidePDF/"><strong>Read the guides →</strong></a></p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>AUTOMATION</strong></sub>
-  <h3>Codex goal templates</h3>
-  <p>Editable plans for RL training, MTP GGUF releases, and repeatable repository maintenance.</p>
-  <p><a href="codex-goals/"><strong>Use a goal template →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>DOCUMENTATION</strong></sub>
-  <h3>Multilingual knowledge base</h3>
-  <p>English, Chinese, Korean, and Japanese entry points, plus project philosophy and maintenance notes.</p>
-  <p><a href="docs/"><strong>Open the documentation →</strong></a></p>
-</td>
-</tr>
-</table>
-
-## What the workshop covers
-
-| Area | Released workflows |
+| I want to... | Recommended entry |
 |---|---|
-| Fine-tuning | LoRA / QLoRA SFT, browser notebooks, Python tutorials |
-| Reinforcement learning | GRPO and GSPO recipes with inspectable reward and training code |
-| Data | Distillation, preprocessing, dataset selection, and batch download helpers |
-| Export | LoRA adapters, merged 16-bit checkpoints, GGUF conversion and quantization |
-| Agent tooling | Reusable MTP release skill and editable Codex goal templates |
+| Fine-tune my first model in a browser | [Open the training recipe catalog](train_code/) |
+| Run the Qwopus3.6 27B GSPO tutorial | [Open the GSPO Python tutorial](train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py) |
+| Prepare or distill training data | [Browse data-processing recipes](data_processing_code/) |
+| Find curated reasoning, coding, and conversation datasets | [Open the dataset catalog](High-fidelity%20Dataset/) |
+| Convert a Qwen model to MTP-enabled GGUF | [Open the Qwen MTP GGUF Skill](qwen-mtp-gguf/) |
+| Read full beginner guides and reports | [Open the PDF guide library](guidePDF/) |
+| Automate repeatable Codex workflows | [Open the Codex Goal templates](codex-goals/) |
 
-<details>
-<summary><strong>Model support roadmap</strong></summary>
+## 🗺️ Repository Map
 
-<br>
+| Resource | What you will find | Entry |
+|---|---|---|
+| 🏋️ Training Recipes | SFT, GRPO, and GSPO notebooks and Python tutorials | [Open](train_code/) |
+| 🧪 Data Processing | Distillation, preprocessing, filtering, and sampling workflows | [Open](data_processing_code/) |
+| 🧠 Dataset Catalog | Curated high-fidelity datasets and download helpers | [Open](High-fidelity%20Dataset/) |
+| ⚙️ Qwen MTP GGUF Skill | Agent-ready MTP extraction, injection, conversion, validation, quantization, and upload pipeline | [Open](qwen-mtp-gguf/) |
+| 📘 Guides and Reports | Long-form PDF tutorials and technical reports | [Open](guidePDF/) |
+| 🌐 Multilingual Docs | Chinese, Korean, and Japanese landing pages plus documentation indexes | [Open](docs/) |
+| 🤖 Codex Goal Templates | Editable goal templates for RL training, MTP GGUF conversion, and repository maintenance | [Open](codex-goals/) |
+
+## 🏋️ Training Recipes
+
+| Model | Method | Environment | Quick setup |
+|---|---|---|---|
+| Qwopus3.5 27B | SFT | Google Colab | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus3-5-27b-Colab.ipynb) |
+| Qwopus3.6 27B | GSPO | Python script | [![Python Code](https://img.shields.io/badge/Code-Python-3776AB?style=flat-square&logo=python&logoColor=white)](train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py) |
+| Qwen3.5 9B | SFT | Kaggle | [![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
+| Qwopus3.5 35B | SFT | Kaggle | [![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
+| Llama3.2-R1 3B | GRPO | Kaggle | [![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
+
+Browse the full catalog in [train_code/README.md](train_code/README.md).
+
+## ✅ Supported Workflows
+
+| Workflow | Status | Documentation |
+|---|---|---|
+| SFT with LoRA / QLoRA | ✅ Released | [Training recipes](train_code/) |
+| GRPO reinforcement learning | ✅ Released | [Training recipes](train_code/) |
+| GSPO reinforcement learning | ✅ Released | [Qwopus3.6 27B GSPO tutorial](train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py) |
+| Dataset distillation and preprocessing | ✅ Released | [Data-processing recipes](data_processing_code/) |
+| LoRA adapter save and merged 16-bit export | ✅ Released | [Training recipes](train_code/) |
+| GGUF quantization | ✅ Released | [Training recipes](train_code/) |
+| Qwen MTP GGUF conversion | ✅ Released | [MTP conversion skill](qwen-mtp-gguf/) |
+
+## 🛣️ Model Support Roadmap
 
 Released RL recipes may use GRPO or GSPO depending on the model and training objective.
 
-| Model family | SFT support | RL support |
+| Model Family | SFT Support | RL Support |
 |---|---:|---:|
-| Qwen 3.5 | Released | Scheduled |
-| Qwen 3.6 | Released | Released |
+| Qwen 3.5 | ✅ Released | Scheduled |
+| Qwen 3.6 | ✅ Released | ✅ Released |
 | Qwen 3 | Scheduled | Scheduled |
-| Llama3.2-R1 3B | Included | Released |
+| Llama3.2-R1 3B | ✅ Included | ✅ Released |
 | Llama 3.1 / 3.3 | Scheduled | Scheduled |
 
-</details>
+## ⚙️ Qwen MTP GGUF Conversion Skill
 
-## Open source, by design
+The [`qwen-mtp-gguf`](qwen-mtp-gguf/) subproject supports Qwen-family MTP / nextn GGUF release workflows. It performs disk, RAM, tooling, token-access, and compatibility preflight checks, extracts compatible MTP tensors, injects them into the target model, converts with llama.cpp, smoke-tests outputs, quantizes releases, and supports safer upload/resume workflows.
 
-> Training knowledge is most useful when learners can reproduce it, inspect the decisions, and adapt the workflow to their own models and data.
+[🚀 Open the MTP Skill](qwen-mtp-gguf/) · [📖 Read the Pipeline Guide](qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md) · [🤖 Read the Agent Usage Guide](qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
-The source code and documentation for released fine-tuned models stay available whenever possible. Read the longer [project philosophy](docs/PROJECT_PHILOSOPHY.md) and the repository [maintenance guide](docs/MAINTAINING_THE_KNOWLEDGE_BASE.md).
+## 📘 Guides and Reports
 
-<details>
-<summary><strong>Cite this project</strong></summary>
+Long-form PDFs live in the [guide and technical report library](guidePDF/README.md).
+
+| Guide | Topic | File |
+|---|---|---|
+| Qwopus3.5 27B Colab complete guide | Beginner-friendly end-to-end fine-tuning walkthrough | [PDF](guidePDF/Qwopus3-5-27b-Colab_complete_guide_to_llm_finetuning.pdf) |
+| Qwopus GLM 18B technical report | Model design and training notes | [PDF](guidePDF/Qwopus-GLM-18B-Technical-Report.pdf) |
+
+## 🧠 High-Fidelity Dataset Catalog
+
+The repository includes 24 curated high-fidelity datasets for reasoning, mathematics, coding, instruction following, conversation, and domain-specific distillation. Browse the full [dataset catalog](High-fidelity%20Dataset/README.md), or use [`download_datasets.py`](download_datasets.py) to batch download the suite for local training.
+
+## 🤝 Open-Source Commitment
+
+This project keeps the training source code and documentation for released fine-tuned models available so learners can reproduce, inspect, and adapt the workflows. The longer project philosophy and original message to builders are preserved in [docs/PROJECT_PHILOSOPHY.md](docs/PROJECT_PHILOSOPHY.md).
+
+## 📚 Citation
+
+If you find this repository helpful in your learning or research, please consider citing it:
 
 ```bibtex
 @misc{jackrong-llm-finetuning,
@@ -211,22 +136,3 @@ The source code and documentation for released fine-tuned models stay available 
   howpublished = {\url{https://github.com/R6410418/Jackrong-llm-finetuning-guide}}
 }
 ```
-
-</details>
-
----
-
-<div align="center">
-
-<p>
-  Built with
-  <a href="https://github.com/unslothai/unsloth">Unsloth</a> ·
-  <a href="https://pytorch.org/">PyTorch</a> ·
-  <a href="https://huggingface.co/Jackrong">Hugging Face</a> ·
-  <a href="https://colab.research.google.com/">Google Colab</a> ·
-  <a href="https://kaggle.com/">Kaggle</a>
-</p>
-
-<p><sub>Open knowledge for people building open models.</sub></p>
-
-</div>

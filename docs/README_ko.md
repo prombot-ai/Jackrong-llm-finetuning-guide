@@ -1,205 +1,129 @@
 <div align="center">
 
-<p><sub><strong>오픈소스 LLM 학습 워크숍</strong></sub></p>
+# Jackrong LLM Fine-Tuning Guide
 
-<h1>Jackrong LLM Fine-Tuning Guide</h1>
+초보자와 개발자를 위한 오픈소스 LLM 파인튜닝, 데이터 증류, 강화학습, 로컬 배포 지식 베이스입니다.
 
-<p><strong>학습 → 증류 → 파인튜닝 → 정렬 → 배포</strong></p>
+🌐 **Languages:** [English](../README.md) | [中文](README_zh.md) | 한국어 | [日本語](README_ja.md)
 
-<p>
-  원시 데이터를 재현 가능한 학습 워크플로와<br>
-  로컬에서 실행할 수 있는 모델로 바꾸는 실전형 지식 베이스입니다.
-</p>
+🤗 **Hugging Face:** [Jackrong](https://huggingface.co/Jackrong)
 
-<p>
-  <a href="../train_code/"><strong>학습 시작</strong></a>
-  ·
-  <a href="../High-fidelity%20Dataset/"><strong>데이터셋 둘러보기</strong></a>
-  ·
-  <a href="../qwen-mtp-gguf/"><strong>GGUF로 배포하기</strong></a>
-  ·
-  <a href="https://r6410418.github.io/Jackrong-llm-finetuning-guide/"><strong>제품 웹사이트 열기</strong></a>
-</p>
+🌐 **제품 웹사이트:** [Qwopus3.6 모델과 파인튜닝 가이드 보기 →](https://r6410418.github.io/Jackrong-llm-finetuning-guide/)
 
-<p>
-  <code>SFT</code>&nbsp;&nbsp;
-  <code>GRPO</code>&nbsp;&nbsp;
-  <code>GSPO</code>&nbsp;&nbsp;
-  <code>LoRA / QLoRA</code>&nbsp;&nbsp;
-  <code>MTP → GGUF</code>
-</p>
+<br>
 
-<p>
-  <sub>
-    <a href="../README.md">English</a> ·
-    <a href="../docs/README_zh.md">中文</a> · 한국어 ·
-    <a href="../docs/README_ja.md">日本語</a>
-  </sub>
-</p>
+[![Unsloth](https://img.shields.io/badge/Powered%20by-Unsloth-8A2BE2?style=flat-square)](https://github.com/unslothai/unsloth)
+[![Google Colab](https://img.shields.io/badge/Environment-Google%20Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/)
+[![PyTorch](https://img.shields.io/badge/Framework-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Hugging Face](https://img.shields.io/badge/Model%20Hub-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/)
+[![LoRA PEFT](https://img.shields.io/badge/Technique-LoRA%20%2F%20PEFT-007EC6?style=flat-square)](#)
+[![Beginner Friendly](https://img.shields.io/badge/Level-Beginner%20Friendly-brightgreen?style=flat-square)](#)
 
 </div>
 
 ---
 
-<table>
-<tr>
-<td align="center" width="25%"><strong>24</strong><br><sub>엄선된 데이터셋</sub></td>
-<td align="center" width="25%"><strong>5</strong><br><sub>실행 가능한 레시피</sub></td>
-<td align="center" width="25%"><strong>3</strong><br><sub>학습 방식</sub></td>
-<td align="center" width="25%"><strong>4</strong><br><sub>지원 언어</sub></td>
-</tr>
-</table>
+이 저장소는 재현 가능한 training pipelines, SFT와 RL workflows(GRPO 및 GSPO 포함), 데이터 준비와 distillation recipes, 16-bit export와 GGUF deployment, agent-ready Qwen MTP GGUF conversion tools를 한곳에서 찾을 수 있도록 구성한 교육용 resource portal입니다.
 
-## 나에게 맞는 경로 선택
+## 📚 목차
 
-<table>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>01 / 학습</strong></sub>
-  <h3>브라우저에서 파인튜닝하기</h3>
-  <p>로컬 GPU 환경을 먼저 구축하지 않아도 안내형 Colab 또는 Kaggle 레시피를 실행할 수 있습니다.</p>
-  <p><a href="../train_code/"><strong>트레이닝 레시피 둘러보기 →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>02 / 데이터 구축</strong></sub>
-  <h3>더 나은 데이터셋 증류하기</h3>
-  <p>추론, 코딩, STEM, 대화, 도메인 데이터를 후속 학습에 적합한 형태로 준비합니다.</p>
-  <p><a href="../data_processing_code/"><strong>데이터 레시피 살펴보기 →</strong></a></p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>03 / 정렬</strong></sub>
-  <h3>SFT, GRPO, GSPO 실습하기</h3>
-  <p>검토 가능한 코드와 함께 지도 파인튜닝에서 강화학습 워크플로까지 단계적으로 확장합니다.</p>
-  <p><a href="../train_code/README.md"><strong>학습 방식 비교하기 →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>04 / 배포</strong></sub>
-  <h3>MTP 지원 GGUF 배포하기</h3>
-  <p>Qwen 계열 모델을 검증하고 변환한 뒤 스모크 테스트, 양자화, 릴리스하여 로컬 추론에 사용합니다.</p>
-  <p><a href="../qwen-mtp-gguf/"><strong>MTP GGUF 스킬 열기 →</strong></a></p>
-</td>
-</tr>
-</table>
+- [🚀 시작하기](#-시작하기)
+- [🗺️ 리포지토리 맵](#️-리포지토리-맵)
+- [🏋️ 트레이닝 레시피](#️-트레이닝-레시피)
+- [✅ 지원되는 워크플로우](#-지원되는-워크플로우)
+- [🛣️ 모델 지원 로드맵](#️-모델-지원-로드맵)
+- [⚙️ Qwen MTP GGUF Conversion Skill](#️-qwen-mtp-gguf-conversion-skill)
+- [📘 가이드와 리포트](#-가이드와-리포트)
+- [🧠 고품질 데이터셋 카탈로그](#-고품질-데이터셋-카탈로그)
+- [🤝 오픈소스 약속](#-오픈소스-약속)
+- [📚 인용](#-인용)
 
-## 하나의 학습 루프, 처음부터 끝까지
+## 🚀 시작하기
 
-<p align="center">
-  <strong>01 · 선별</strong>
-  &nbsp;→&nbsp;
-  <strong>02 · 증류</strong>
-  &nbsp;→&nbsp;
-  <strong>03 · 학습</strong>
-  &nbsp;→&nbsp;
-  <strong>04 · 정렬</strong>
-  &nbsp;→&nbsp;
-  <strong>05 · 배포</strong>
-</p>
-
-| 단계 | 이곳에서 할 수 있는 일 | 시작점 |
-|---|---|---|
-| 선별 | 고품질 추론, 코딩, 대화, 도메인 데이터 선택 | [데이터셋 카탈로그](../High-fidelity%20Dataset/) |
-| 증류 | 교사 모델 워크플로로 학습 데이터를 생성하거나 변환 | [데이터 처리](../data_processing_code/) |
-| 학습 | Colab, Kaggle 또는 Python에서 LoRA / QLoRA 지도 파인튜닝 실행 | [트레이닝 랩](../train_code/) |
-| 정렬 | 공개된 GRPO 및 GSPO 강화학습 레시피 탐색 | [RL 레시피](../train_code/README.md#-reinforcement-learning-grpo--gspo) |
-| 배포 | 어댑터 내보내기, 16비트 체크포인트 병합, MTP 지원 GGUF 릴리스 제작 | [배포 스킬](../qwen-mtp-gguf/) |
-
-## 트레이닝 랩
-
-공개된 다섯 가지 레시피로 브라우저 중심 학습, 지도 파인튜닝, 강화학습을 실습할 수 있습니다.
-
-| 모델 | 방식 · 환경 | 실행 |
-|---|---|---|
-| **Qwopus3.5 27B** | `SFT` · Google Colab | [노트북 실행](https://colab.research.google.com/github/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus3-5-27b-Colab.ipynb) |
-| **Qwopus3.6 27B** | `GSPO` · Python | [튜토리얼 읽기](../train_code/Qwopus3.6-27B-GSPO/) |
-| **Qwen3.5 Neo 9B** | `SFT` · Kaggle | [노트북 열기](../train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
-| **Qwopus3.5 35B-A3B** | `SFT` · Kaggle | [노트북 열기](../train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
-| **Llama3.2-R1 3B** | `GRPO` · Kaggle | [노트북 열기](../train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
-
-**[전체 트레이닝 카탈로그 둘러보기 →](../train_code/README.md)**
-
-## 체크포인트에서 로컬 런타임까지 이어지는 MTP GGUF
-
-> [!TIP]
-> [`qwen-mtp-gguf`](../qwen-mtp-gguf/) 하위 프로젝트는 단순한 변환 명령이 아니라 에이전트가 활용할 수 있는 릴리스 워크플로입니다. 모델 호환성과 시스템 자원을 점검하고, MTP / nextn 텐서를 검증하거나 주입하며, llama.cpp 변환과 HF 및 GGUF 스모크 테스트를 수행합니다. 이어서 양자화 매트릭스를 만들고 더욱 안전한 업로드 및 재개 작업을 지원합니다.
-
-<p>
-  <a href="../qwen-mtp-gguf/"><strong>스킬 열기</strong></a>
-  ·
-  <a href="../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md">파이프라인 가이드 읽기</a>
-  ·
-  <a href="../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md">에이전트와 함께 사용하기</a>
-</p>
-
-## 리소스 라이브러리
-
-<table>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>데이터</strong></sub>
-  <h3>고품질 데이터셋 카탈로그</h3>
-  <p>추론, 수학, 코드, 지시 이행, 대화, 도메인 작업을 위한 엄선된 24개 컬렉션입니다.</p>
-  <p><a href="../High-fidelity%20Dataset/"><strong>카탈로그 둘러보기 →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>가이드</strong></sub>
-  <h3>심층 학습 자료실</h3>
-  <p>개념을 완전한 학습 워크플로와 연결해 주는 초보자용 안내서와 기술 보고서입니다.</p>
-  <p><a href="../guidePDF/"><strong>가이드 읽기 →</strong></a></p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-  <sub><strong>자동화</strong></sub>
-  <h3>Codex 목표 템플릿</h3>
-  <p>RL 학습, MTP GGUF 릴리스, 반복 가능한 저장소 유지관리를 위한 편집 가능한 계획입니다.</p>
-  <p><a href="../codex-goals/"><strong>목표 템플릿 사용하기 →</strong></a></p>
-</td>
-<td width="50%" valign="top">
-  <sub><strong>문서</strong></sub>
-  <h3>다국어 지식 베이스</h3>
-  <p>영어, 중국어, 한국어, 일본어 진입점과 프로젝트 철학 및 유지관리 안내를 제공합니다.</p>
-  <p><a href="../docs/"><strong>문서 열기 →</strong></a></p>
-</td>
-</tr>
-</table>
-
-## 워크숍에서 다루는 내용
-
-| 영역 | 공개된 워크플로 |
+| 하고 싶은 일 | 추천 항목 |
 |---|---|
-| 파인튜닝 | LoRA / QLoRA SFT, 브라우저 노트북, Python 튜토리얼 |
-| 강화학습 | 검토 가능한 보상 및 학습 코드가 포함된 GRPO 및 GSPO 레시피 |
-| 데이터 | 증류, 전처리, 데이터셋 선택, 일괄 다운로드 도구 |
-| 내보내기 | LoRA 어댑터, 병합된 16비트 체크포인트, GGUF 변환 및 양자화 |
-| 에이전트 도구 | 재사용 가능한 MTP 릴리스 스킬과 편집 가능한 Codex 목표 템플릿 |
+| 브라우저에서 첫 fine-tuning 실행 | [Training recipe catalog 열기](../train_code/) |
+| Qwopus3.6 27B GSPO tutorial 실행 | [GSPO Python tutorial 열기](../train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py) |
+| training data 준비 또는 distillation | [Data-processing recipes 보기](../data_processing_code/) |
+| reasoning, coding, conversation datasets 찾기 | [Dataset catalog 열기](../High-fidelity%20Dataset/) |
+| Qwen model을 MTP-enabled GGUF로 변환 | [Qwen MTP GGUF Skill 열기](../qwen-mtp-gguf/) |
+| 긴 beginner guides와 reports 읽기 | [PDF guide library 열기](../guidePDF/) |
+| 반복 가능한 Codex workflows 자동화 | [Codex Goal templates 열기](../codex-goals/) |
 
-<details>
-<summary><strong>모델 지원 로드맵</strong></summary>
+## 🗺️ 리포지토리 맵
 
-<br>
+| 리소스 | 포함 내용 | 항목 |
+|---|---|---|
+| 🏋️ Training Recipes | SFT, GRPO, GSPO notebooks와 Python tutorials | [열기](../train_code/) |
+| 🧪 Data Processing | Distillation, preprocessing, cleaning, filtering, sampling workflows | [열기](../data_processing_code/) |
+| 🧠 Dataset Catalog | Curated high-fidelity datasets와 download helpers | [열기](../High-fidelity%20Dataset/) |
+| ⚙️ Qwen MTP GGUF Skill | MTP extraction, injection, conversion, validation, quantization, upload pipeline | [열기](../qwen-mtp-gguf/) |
+| 📘 Guides and Reports | Long-form PDF tutorials와 technical reports | [열기](../guidePDF/) |
+| 🌐 Multilingual Docs | Korean, Chinese, Japanese landing pages와 documentation index | [열기](README.md) |
+| 🤖 Codex Goal Templates | RL training, MTP GGUF conversion, repository maintenance용 editable templates | [열기](../codex-goals/) |
 
-공개된 RL 레시피는 모델과 학습 목표에 따라 GRPO 또는 GSPO를 사용합니다.
+## 🏋️ 트레이닝 레시피
+
+| 모델 | 방법 | 환경 | 빠른 실행 |
+|---|---|---|---|
+| Qwopus3.5 27B | SFT | Google Colab | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus3-5-27b-Colab.ipynb) |
+| Qwopus3.6 27B | GSPO | Python script | [![Python Code](https://img.shields.io/badge/Code-Python-3776AB?style=flat-square&logo=python&logoColor=white)](../train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py) |
+| Qwen3.5 9B | SFT | Kaggle | [![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwen3.5-9B-Neo-Kaggle.ipynb) |
+| Qwopus3.5 35B | SFT | Kaggle | [![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb) |
+| Llama3.2-R1 3B | GRPO | Kaggle | [![Open In Kaggle](https://img.shields.io/badge/Open%20in-Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://kaggle.com/kernels/welcome?src=https://github.com/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb) |
+
+전체 목록은 [train_code/README.md](../train_code/README.md)를 참고하세요.
+
+## ✅ 지원되는 워크플로우
+
+| 워크플로우 | 상태 | 문서 |
+|---|---|---|
+| LoRA / QLoRA 기반 SFT | ✅ Released | [Training recipes](../train_code/) |
+| GRPO reinforcement learning | ✅ Released | [Training recipes](../train_code/) |
+| GSPO reinforcement learning | ✅ Released | [Qwopus3.6 27B GSPO tutorial](../train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py) |
+| Dataset distillation and preprocessing | ✅ Released | [Data-processing recipes](../data_processing_code/) |
+| LoRA adapter save and merged 16-bit export | ✅ Released | [Training recipes](../train_code/) |
+| GGUF quantization | ✅ Released | [Training recipes](../train_code/) |
+| Qwen MTP GGUF conversion | ✅ Released | [MTP conversion skill](../qwen-mtp-gguf/) |
+
+## 🛣️ 모델 지원 로드맵
+
+공개된 RL recipe는 모델과 목표에 따라 GRPO 또는 GSPO를 사용합니다.
 
 | 모델 패밀리 | SFT 지원 | RL 지원 |
 |---|---:|---:|
-| Qwen 3.5 | 공개됨 | 예정 |
-| Qwen 3.6 | 공개됨 | 공개됨 |
-| Qwen 3 | 예정 | 예정 |
-| Llama3.2-R1 3B | 포함됨 | 공개됨 |
-| Llama 3.1 / 3.3 | 예정 | 예정 |
+| Qwen 3.5 | ✅ Released | Scheduled |
+| Qwen 3.6 | ✅ Released | ✅ Released |
+| Qwen 3 | Scheduled | Scheduled |
+| Llama3.2-R1 3B | ✅ Included | ✅ Released |
+| Llama 3.1 / 3.3 | Scheduled | Scheduled |
 
-</details>
+## ⚙️ Qwen MTP GGUF Conversion Skill
 
-## 처음부터 오픈소스로
+[`qwen-mtp-gguf`](../qwen-mtp-gguf/) subproject는 Qwen-family MTP / nextn GGUF release workflow를 지원합니다. Disk, RAM, tooling, token access, compatibility preflight를 수행하고, compatible MTP tensors를 추출 및 주입한 뒤 llama.cpp로 변환하고 smoke test, quantization, safer upload/resume workflow를 제공합니다.
 
-> 학습 지식은 누구나 과정을 재현하고, 의사결정을 검토하고, 자신의 모델과 데이터에 맞게 워크플로를 바꿀 수 있을 때 가장 유용합니다.
+[🚀 MTP Skill 열기](../qwen-mtp-gguf/) · [📖 Pipeline Guide 읽기](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md) · [🤖 Agent Usage Guide 읽기](../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Agent-Usage.md)
 
-공개된 파인튜닝 모델의 소스 코드와 문서는 가능한 한 계속 열어 둡니다. 더 자세한 [프로젝트 철학](../docs/PROJECT_PHILOSOPHY.md)과 저장소 [유지관리 가이드](../docs/MAINTAINING_THE_KNOWLEDGE_BASE.md)를 확인하세요.
+## 📘 가이드와 리포트
 
-<details>
-<summary><strong>이 프로젝트 인용하기</strong></summary>
+긴 PDF 문서는 [guide and technical report library](../guidePDF/README.md)에 정리되어 있습니다.
+
+| 가이드 | 주제 | 파일 |
+|---|---|---|
+| Qwopus3.5 27B Colab complete guide | 초보자를 위한 end-to-end fine-tuning walkthrough | [PDF](../guidePDF/Qwopus3-5-27b-Colab_complete_guide_to_llm_finetuning.pdf) |
+| Qwopus GLM 18B technical report | Model design과 training notes | [PDF](../guidePDF/Qwopus-GLM-18B-Technical-Report.pdf) |
+
+## 🧠 고품질 데이터셋 카탈로그
+
+이 저장소에는 reasoning, mathematics, coding, instruction following, conversation, domain-specific distillation을 위한 24개의 curated high-fidelity datasets가 포함되어 있습니다. 전체 [dataset catalog](../High-fidelity%20Dataset/README.md)를 보거나 [`download_datasets.py`](../download_datasets.py)로 로컬 학습용 데이터를 일괄 다운로드할 수 있습니다.
+
+## 🤝 오픈소스 약속
+
+이 프로젝트는 공개된 fine-tuned models의 training source code와 documentation을 가능한 한 열어 두어, 학습자가 workflows를 재현하고 검토하고 자신의 목적에 맞게 수정할 수 있도록 합니다. 더 긴 project philosophy와 original message to builders는 [PROJECT_PHILOSOPHY.md](PROJECT_PHILOSOPHY.md)에 보존되어 있습니다.
+
+## 📚 인용
+
+이 저장소가 학습이나 연구에 도움이 되었다면 아래와 같이 인용해 주세요.
 
 ```bibtex
 @misc{jackrong-llm-finetuning,
@@ -211,22 +135,3 @@
   howpublished = {\url{https://github.com/R6410418/Jackrong-llm-finetuning-guide}}
 }
 ```
-
-</details>
-
----
-
-<div align="center">
-
-<p>
-  함께 사용하는 도구:
-  <a href="https://github.com/unslothai/unsloth">Unsloth</a> ·
-  <a href="https://pytorch.org/">PyTorch</a> ·
-  <a href="https://huggingface.co/Jackrong">Hugging Face</a> ·
-  <a href="https://colab.research.google.com/">Google Colab</a> ·
-  <a href="https://kaggle.com/">Kaggle</a>
-</p>
-
-<p><sub>오픈 모델을 만드는 모두를 위한 열린 지식.</sub></p>
-
-</div>
