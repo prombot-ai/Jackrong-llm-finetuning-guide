@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Qwopus3.6 product and fine-tuning learning showcase for the Jackrong open model family.">
+  <title>Qwopus3.6 — Open models engineered to reason and ship</title>
+  <link rel="stylesheet" href="meta-v2-assets/meta-v2.css">
+</head>
+<body>
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Jackrong Open Model Lab home">
+        <span class="brand-mark">J</span>
+        <span>Jackrong · Open Model Lab</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#models">Models</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#learn-by-building">Learn</a>
+        <a href="#deployment">Deploy</a>
+        <a href="README_VISUAL_PREVIEW.html">V1 design</a>
+        <a class="nav-cta" href="https://huggingface.co/Jackrong" target="_blank" rel="noreferrer">Explore on HF</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Qwopus3.6 model family</p>
+          <h1 id="hero-title">Open models, engineered to reason and ship.</h1>
+          <p class="lede">A product family for deep reasoning, coding agents, multimodal workflows, and fast local inference—paired with the training code and release tools to understand every step.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#models">Meet the models</a>
+            <a class="button secondary" href="#learn-by-building">Start learning</a>
+          </div>
+          <p class="hero-note">Open checkpoints · Reproducible recipes · Local GGUF releases</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-bar" aria-label="Qwopus3.6 public Hugging Face signals">
+      <div class="container signals">
+        <div class="signal intro">
+          <small>Public HF snapshot · 2026-07-11</small>
+          <strong>A growing open-model product family.</strong>
+        </div>
+        <div class="signal">
+          <small>Top monthly downloads</small>
+          <strong>439K</strong>
+        </div>
+        <div class="signal">
+          <small>Community favorite</small>
+          <strong>365 likes</strong>
+        </div>
+        <div class="signal">
+          <small>Model engines</small>
+          <strong>Dense + MoE</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="models">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="eyebrow">The Qwopus3.6 family</p>
+            <h2>Choose the model for the work.</h2>
+          </div>
+          <p>One reasoning foundation, specialized coding agents, and local MTP-enabled packages. Each product keeps a clear role instead of collapsing the family into one generic model card.</p>
+        </header>
+
+        <article class="featured-model">
+          <div class="featured-copy">
+            <p class="eyebrow">Reasoning flagship · source checkpoint</p>
+            <h3>Qwopus3.6<br>27B-v2</h3>
+            <p>A dense, reasoning-enhanced foundation built on Qwen3.6-27B, with multimodal processor metadata, tool and function calling, agent workflows, and a three-stage curriculum fine-tune.</p>
+            <div class="feature-tags" aria-label="Model capabilities">
+              <span class="pill">27B-class dense</span>
+              <span class="pill">image-text</span>
+              <span class="pill">tool calling</span>
+              <span class="pill">Apache-2.0</span>
+            </div>
+            <a class="model-link" href="https://huggingface.co/Jackrong/Qwopus3.6-27B-v2" target="_blank" rel="noreferrer">Open the foundation model →</a>
+          </div>
+          <div class="featured-visual" aria-label="Abstract visual of the Qwopus3.6 27B foundation">
+            <div class="model-orbit">
+              <span class="orbit-chip a">Reasoning</span>
+              <span class="orbit-chip b">Vision config</span>
+              <span class="orbit-chip c">Agent tools</span>
+              <span class="orbit-chip d">Long context</span>
+              <div class="model-core"><div><strong>27B</strong><span>Qwopus3.6 core</span></div></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <span class="card-label">Local coding flagship · MTP GGUF</span>
+            <h3>Qwopus3.6-27B-Coder</h3>
+            <p>A dense agentic coder for repository repair, debugging, tool execution, and private local inference. Bundled MTP heads support speculative decoding.</p>
+            <div class="product-meta"><span>315,621 downloads</span><span>327 likes</span><span>Q4_K_M · 16.8GB</span></div>
+            <a href="https://huggingface.co/Jackrong/Qwopus3.6-27B-Coder-MTP-GGUF" target="_blank" rel="noreferrer">Explore Coder MTP →</a>
+          </article>
+          <article class="product-card">
+            <span class="card-label">Throughput-first coding agent · MoE</span>
+            <h3>Qwopus3.6-35B-A3B-Coder</h3>
+            <p>A sparse 35B / ~3B-active coding agent designed for fast thinking-off tool loops and practical local deployment.</p>
+            <div class="product-meta"><span>290,863 downloads</span><span>175 likes</span><span>Q4 · 21.7GB</span></div>
+            <a href="https://huggingface.co/Jackrong/Qwopus3.6-35B-A3B-Coder-MTP-GGUF" target="_blank" rel="noreferrer">Explore MoE Coder →</a>
+          </article>
+          <article class="product-card">
+            <span class="card-label">Community favorite · accelerated reasoning</span>
+            <h3>Qwopus3.6-27B-v2 MTP</h3>
+            <p>The general reasoning flagship packaged for MTP speculative decoding, with multimodal and tool-use workflows retained for local runtimes.</p>
+            <div class="product-meta"><span>130,278 downloads</span><span>365 likes</span><span>Q5_K_M · 19.5GB</span></div>
+            <a href="https://huggingface.co/Jackrong/Qwopus3.6-27B-v2-MTP-GGUF" target="_blank" rel="noreferrer">Explore reasoning MTP →</a>
+          </article>
+          <article class="product-card">
+            <span class="card-label">General-purpose local MoE</span>
+            <h3>Qwopus3.6-35B-A3B-v1</h3>
+            <p>A general reasoning MoE alternative with ~3B active parameters per token, vision configuration, tool calling, and an efficient GGUF deployment path.</p>
+            <div class="product-meta"><span>71,094 downloads</span><span>215 likes</span><span>Q4 · 21.2GB</span></div>
+            <a href="https://huggingface.co/Jackrong/Qwopus3.6-35B-A3B-v1-GGUF" target="_blank" rel="noreferrer">Explore general MoE →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="architecture">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="eyebrow">Built to be understood</p>
+            <h2>A model workflow you can inspect.</h2>
+          </div>
+          <p>The page separates model facts, tutorial defaults, and release options. That keeps the story product-like without turning one training configuration into a false architecture claim.</p>
+        </header>
+
+        <div class="experience-grid">
+          <div class="experience-list">
+            <div class="experience-item active">
+              <h3>Foundation and inputs <span>−</span></h3>
+              <p>Text plus optional vision input is formatted with the model-provided chat template and Qwen3-VL processor metadata.</p>
+            </div>
+            <div class="experience-item">
+              <h3>Efficient adaptation <span>+</span></h3>
+              <p>4-bit loading, LoRA rank 16, and Unsloth gradient checkpointing.</p>
+            </div>
+            <div class="experience-item">
+              <h3>Inspectable alignment <span>+</span></h3>
+              <p>Two completions, three reward signals, and GSPO-style updates.</p>
+            </div>
+            <div class="experience-item">
+              <h3>Flexible release paths <span>+</span></h3>
+              <p>Adapters, merged 16-bit checkpoints, and GGUF deployment.</p>
+            </div>
+          </div>
+
+          <div class="architecture-stage">
+            <svg viewBox="0 0 940 650" role="img" aria-labelledby="arch-title arch-desc">
+              <title id="arch-title">Qwopus3.6 tutorial architecture</title>
+              <desc id="arch-desc">Text and optional vision input go through a Qwen3-VL processor into a 27B-class Qwopus core with language and attention adapters, then generate two completions scored by three rewards before export.</desc>
+              <defs>
+                <linearGradient id="core-gradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0064e0"/>
+                  <stop offset=".55" stop-color="#705ce8"/>
+                  <stop offset="1" stop-color="#22a8c5"/>
+                </linearGradient>
+                <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#1c2b33" flood-opacity=".12"/>
+                </filter>
+              </defs>
+              <path d="M150 172 H264" stroke="#9ba8b5" stroke-width="2" fill="none"/>
+              <path d="M150 282 H264" stroke="#9ba8b5" stroke-width="2" fill="none"/>
+              <path d="M382 228 H452" stroke="#0064e0" stroke-width="3" fill="none"/>
+              <path d="M676 228 H740 V170" stroke="#0064e0" stroke-width="3" fill="none"/>
+              <path d="M740 228 V286" stroke="#0064e0" stroke-width="3" fill="none"/>
+              <rect x="34" y="130" width="116" height="84" rx="20" fill="#fff" stroke="#d6dee6"/>
+              <text x="92" y="164" text-anchor="middle" font-size="12" font-weight="800" fill="#5d6c7b">INPUT</text>
+              <text x="92" y="190" text-anchor="middle" font-size="17" font-weight="700" fill="#1c2b33">TEXT</text>
+              <rect x="34" y="240" width="116" height="84" rx="20" fill="#fff" stroke="#d6dee6"/>
+              <text x="92" y="274" text-anchor="middle" font-size="12" font-weight="800" fill="#5d6c7b">OPTIONAL</text>
+              <text x="92" y="300" text-anchor="middle" font-size="17" font-weight="700" fill="#1c2b33">VISION</text>
+              <rect x="264" y="176" width="118" height="104" rx="24" fill="#e8f3ff" stroke="#bcd8f6"/>
+              <text x="323" y="217" text-anchor="middle" font-size="11" font-weight="800" fill="#0064e0">PROCESSOR</text>
+              <text x="323" y="243" text-anchor="middle" font-size="16" font-weight="700" fill="#1c2b33">QWEN3-VL</text>
+              <rect x="452" y="92" width="224" height="272" rx="42" fill="url(#core-gradient)" filter="url(#soft-shadow)"/>
+              <text x="564" y="143" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="2" fill="#dbeeff">QWOPUS3.6</text>
+              <text x="564" y="185" text-anchor="middle" font-size="42" font-weight="600" fill="#fff">27B</text>
+              <rect x="486" y="218" width="156" height="35" rx="12" fill="rgba(255,255,255,.18)"/>
+              <text x="564" y="241" text-anchor="middle" font-size="12" font-weight="750" fill="#fff">LANGUAGE · ENABLED</text>
+              <rect x="486" y="262" width="156" height="35" rx="12" fill="rgba(255,255,255,.18)"/>
+              <text x="564" y="285" text-anchor="middle" font-size="12" font-weight="750" fill="#fff">ATTENTION + MLP</text>
+              <rect x="486" y="306" width="156" height="35" rx="12" fill="rgba(255,255,255,.12)"/>
+              <text x="564" y="329" text-anchor="middle" font-size="11" font-weight="750" fill="#fff">VISION · FROZEN DEFAULT</text>
+              <rect x="740" y="124" width="164" height="92" rx="22" fill="#fff" stroke="#d6dee6"/>
+              <text x="822" y="159" text-anchor="middle" font-size="11" font-weight="800" fill="#5d6c7b">CANDIDATE 01</text>
+              <text x="822" y="187" text-anchor="middle" font-size="16" font-weight="700" fill="#1c2b33">COMPLETION</text>
+              <rect x="740" y="240" width="164" height="92" rx="22" fill="#fff" stroke="#d6dee6"/>
+              <text x="822" y="275" text-anchor="middle" font-size="11" font-weight="800" fill="#5d6c7b">CANDIDATE 02</text>
+              <text x="822" y="303" text-anchor="middle" font-size="16" font-weight="700" fill="#1c2b33">COMPLETION</text>
+              <text x="470" y="424" font-size="11" font-weight="800" fill="#5d6c7b">REWARD SIGNALS</text>
+              <rect x="470" y="446" width="122" height="52" rx="16" fill="#e8f3ff"/>
+              <text x="531" y="478" text-anchor="middle" font-size="12" font-weight="750" fill="#1c2b33">FORMAT</text>
+              <rect x="604" y="446" width="122" height="52" rx="16" fill="#ffe0d1"/>
+              <text x="665" y="478" text-anchor="middle" font-size="12" font-weight="750" fill="#1c2b33">ANOMALY</text>
+              <rect x="738" y="446" width="142" height="52" rx="16" fill="#bcefdc"/>
+              <text x="809" y="478" text-anchor="middle" font-size="12" font-weight="750" fill="#1c2b33">CORRECTNESS</text>
+              <path d="M564 364 V530" stroke="#7e8c99" stroke-dasharray="5 6"/>
+              <rect x="186" y="540" width="600" height="66" rx="20" fill="#1c2b33"/>
+              <text x="486" y="579" text-anchor="middle" font-size="14" font-weight="750" fill="#fff">LoRA adapter  →  merged 16-bit  →  GGUF release path</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-soft" id="learning-loop">
+      <div class="container">
+        <header class="section-head single">
+          <div>
+            <p class="eyebrow">From data to capability</p>
+            <h2>One open learning loop, built from composable paths.</h2>
+          </div>
+          <p>These are connected educational workflows, not a claim that every catalog dataset trained every Qwopus model.</p>
+        </header>
+
+        <div class="journey">
+          <article class="journey-step"><span class="journey-number">01</span><h3>Curate</h3><p>24 dataset folders across reasoning, STEM, code, conversation, and domains.</p></article>
+          <article class="journey-step"><span class="journey-number">02</span><h3>Distill</h3><p>Teacher-model workflows, structured answers, resumable JSONL output.</p></article>
+          <article class="journey-step"><span class="journey-number">03</span><h3>Supervise</h3><p>SFT with LoRA / QLoRA in Colab, Kaggle, or Python.</p></article>
+          <article class="journey-step"><span class="journey-number">04</span><h3>Align</h3><p>GRPO learning paths and inspectable GSPO-style post-training.</p></article>
+          <article class="journey-step"><span class="journey-number">05</span><h3>Validate</h3><p>Reward tests, environment checks, and short smoke runs.</p></article>
+          <article class="journey-step"><span class="journey-number">06</span><h3>Export</h3><p>Adapters, merged 16-bit checkpoints, GGUF, and local runtime.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="learn-by-building">
+      <div class="container">
+        <header class="teaching-intro">
+          <div>
+            <p class="eyebrow">Learn by building</p>
+            <h2>The models are the outcome. The workflow is the lesson.</h2>
+          </div>
+          <p>Choose a guided path, open the real notebook or script, validate the environment and data, inspect the reward logic, then export a model you understand. The detailed instructions remain beside the code instead of being duplicated into a marketing page.</p>
+        </header>
+
+        <div class="learning-path-grid">
+          <article class="learning-path">
+            <span class="path-number">PATH 01 · BEGINNER</span>
+            <h3>Fine-tune in Colab or Kaggle</h3>
+            <p>Start with a browser notebook and learn LoRA setup, dataset formatting, training controls, adapter saving, and export without assembling a local stack first.</p>
+            <div class="path-links">
+              <a href="../train_code/Qwopus3-5-27b-Colab.ipynb">Qwopus3.5 27B Colab notebook →</a>
+              <a href="../train_code/Qwen3.5-9B-Neo-Kaggle.ipynb">Qwen3.5 Neo 9B Kaggle notebook →</a>
+              <a href="../train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb">Qwopus3.5 35B-A3B Kaggle notebook →</a>
+            </div>
+          </article>
+
+          <article class="learning-path">
+            <span class="path-number">PATH 02 · POST-TRAINING</span>
+            <h3>Study Qwopus3.6 GSPO-style alignment</h3>
+            <p>Follow a publication-safe Python tutorial through dataset conversion, prompt formatting, three reward functions, sampled completions, LoRA training, checkpoint resume, and export.</p>
+            <div class="path-links">
+              <a href="../train_code/Qwopus3.6-27B-GSPO/README.md">Read the complete tutorial →</a>
+              <a href="../train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py">Inspect the training script →</a>
+              <a href="../train_code/Qwopus3.6-27B-GSPO/examples/sample_dataset_format.jsonl">View the sample dataset row →</a>
+            </div>
+          </article>
+
+          <article class="learning-path">
+            <span class="path-number">PATH 03 · END TO END</span>
+            <h3>Build data, train, and ship locally</h3>
+            <p>Connect teacher-model distillation and curated datasets to training, then study the MTP-aware GGUF pipeline, smoke tests, quantization matrix, and safer release flow.</p>
+            <div class="path-links">
+              <a href="../data_processing_code/DeepSeek-v4-API-distill.ipynb">Open the distillation notebook →</a>
+              <a href="../High-fidelity%20Dataset/README.md">Choose a dataset →</a>
+              <a href="../qwen-mtp-gguf/docs/Qwen-MTP-GGUF-Pipeline-Guide.md">Read the GGUF pipeline guide →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="tutorial-workbench">
+          <div class="workbench-copy">
+            <p class="eyebrow">Featured code walkthrough</p>
+            <h3>Qwopus3.6 27B, from a safe check to export.</h3>
+            <p>The default script does not begin a long training run. Learners can inspect each stage independently before enabling training or any upload.</p>
+            <div class="lesson-list">
+              <a href="../train_code/Qwopus3.6-27B-GSPO/ENVIRONMENT_SETUP.txt">Environment and CUDA setup <span>TXT ↗</span></a>
+              <a href="../train_code/Qwopus3.6-27B-GSPO/requirements-gspo.txt">Pinned tutorial requirements <span>TXT ↗</span></a>
+              <a href="../train_code/Qwopus3.6-27B-GSPO/qwopus3_6_27b_gspo_training.py">Runnable training and export CLI <span>PY ↗</span></a>
+              <a href="../train_code/Qwopus3.6-27B-GSPO/SOURCE_PARITY_AUDIT.md">Source-parity audit <span>MD ↗</span></a>
+              <a href="../train_code/Qwopus3.6-27B-GSPO/PRIVACY_AUDIT.md">Publication and privacy audit <span>MD ↗</span></a>
+            </div>
+          </div>
+
+          <div class="command-panel" aria-label="Qwopus3.6 tutorial command sequence">
+            <small>SAFE, INCREMENTAL COMMAND PATH</small>
+            <div class="command-sequence">
+              <div class="command-step"><b>01</b><div><span>Check the environment</span><code>python qwopus3_6_27b_gspo_training.py check-env</code></div></div>
+              <div class="command-step"><b>02</b><div><span>Validate dataset conversion</span><code>python qwopus3_6_27b_gspo_training.py dry-run-data</code></div></div>
+              <div class="command-step"><b>03</b><div><span>Unit-test all three rewards</span><code>python qwopus3_6_27b_gspo_training.py test-rewards</code></div></div>
+              <div class="command-step"><b>04</b><div><span>Inspect supported GGUF formats</span><code>python qwopus3_6_27b_gspo_training.py list-gguf-quants</code></div></div>
+              <div class="command-step"><b>05</b><div><span>Train only after explicit gates</span><code>DRY_RUN=False START_TRAINING=True python qwopus3_6_27b_gspo_training.py train</code></div></div>
+              <div class="command-step"><b>06</b><div><span>Review local export commands</span><code>python qwopus3_6_27b_gspo_training.py export-gguf-q8</code></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="teaching-library">
+          <div class="teaching-library-head">
+            <h3>Guides, catalogs, and teaching utilities</h3>
+            <p>Use the shorter entry pages to orient yourself, then open the canonical file for exact setup, safety notes, schemas, and troubleshooting.</p>
+          </div>
+          <div class="teaching-files">
+            <article class="teaching-file"><small>CATALOG</small><h4>Training recipe index</h4><p>Compare SFT, GRPO, and GSPO entries by model and environment.</p><a href="../train_code/README.md">Browse all recipes →</a></article>
+            <article class="teaching-file"><small>PDF GUIDE</small><h4>Qwopus3.5 27B Colab guide</h4><p>A long-form beginner walkthrough from setup to optimization.</p><a href="../guidePDF/Qwopus3-5-27b-Colab_complete_guide_to_llm_finetuning.pdf">Open the PDF →</a></article>
+            <article class="teaching-file"><small>TECHNICAL REPORT</small><h4>Qwopus GLM 18B report</h4><p>Model design, training approach, and implementation notes.</p><a href="../guidePDF/Qwopus-GLM-18B-Technical-Report.pdf">Open the report →</a></article>
+            <article class="teaching-file"><small>DATA CATALOG</small><h4>Data processing recipes</h4><p>Distillation, schema documentation, and downstream training links.</p><a href="../data_processing_code/README.md">Study data preparation →</a></article>
+            <article class="teaching-file"><small>DATA UTILITIES</small><h4>Download and split helpers</h4><p>Batch-download the catalog or split large local files for manageable workflows.</p><a href="../download_datasets.py">Open download_datasets.py →</a><br><a href="../split_large_files.py">Open split_large_files.py →</a></article>
+            <article class="teaching-file"><small>CODEX GOAL</small><h4>Qwopus 27B RL training plan</h4><p>Prepare, validate, launch-plan, monitor, and resume a guarded GRPO or GSPO workflow.</p><a href="../codex-goals/qwopus27b-rl-training/">Use the goal template →</a></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container alignment-grid">
+        <div class="alignment-copy">
+          <p class="eyebrow">Alignment you can inspect</p>
+          <h2>Sample. Score. Update.</h2>
+          <p>The GSPO-style tutorial uses TRL's GRPO APIs with sequence-level importance sampling, DR-GRPO loss, truncation masking, and three explicit rewards.</p>
+          <div class="alignment-spec">
+            <div class="spec"><small>Samples</small><strong>2 completions / prompt</strong></div>
+            <div class="spec"><small>Adapters</small><strong>LoRA rank 16</strong></div>
+            <div class="spec"><small>Importance sampling</small><strong>Sequence level</strong></div>
+            <div class="spec"><small>Loss</small><strong>DR-GRPO</strong></div>
+          </div>
+        </div>
+        <div class="alignment-visual" aria-label="GSPO-style alignment loop">
+          <div class="align-row"><div class="node"><small>INPUT</small><strong>Prompt</strong></div><div class="arrow">→</div><div class="node"><small>SAMPLE</small><strong>Candidate completion 01</strong></div></div>
+          <div class="align-row"><div class="node"><small>MODEL</small><strong>Qwopus3.6 + LoRA</strong></div><div class="arrow">→</div><div class="node"><small>SAMPLE</small><strong>Candidate completion 02</strong></div></div>
+          <div class="rewards"><div class="reward">Formatting reward</div><div class="reward">Anomaly penalty</div><div class="reward">Answer correctness</div></div>
+          <div class="update-node">Sequence-level weighting → DR-GRPO update → truncation masking</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="deployment">
+      <div class="container mtp-grid">
+        <div class="mtp-copy">
+          <p class="eyebrow">From checkpoint to local runtime</p>
+          <h2>Preserve the prediction head.</h2>
+          <p>The repository's current pipeline validates existing MTP / nextn tensors or injects compatible heads, then uses separate direct-BF16 and temporary-F16 conversion branches before smoke testing.</p>
+          <div class="quant-pills" aria-label="Supported quantizations">
+            <span class="pill">Q2_K</span><span class="pill">Q3_K_S</span><span class="pill">Q3_K_M</span><span class="pill">Q3_K_L</span>
+            <span class="pill">IQ4_XS</span><span class="pill">Q4_K_S</span><span class="pill">Q4_K_M</span><span class="pill">Q5_K_S</span>
+            <span class="pill">Q5_K_M</span><span class="pill">Q6_K</span><span class="pill">Q8_0</span><span class="pill">BF16</span>
+          </div>
+          <div class="safety-track">Preflight → compatibility → smoke test → confirmed upload → cleanup</div>
+        </div>
+        <div class="mtp-visual">
+          <svg viewBox="0 0 900 650" role="img" aria-labelledby="mtp-title mtp-desc">
+            <title id="mtp-title">MTP GGUF conversion pipeline</title>
+            <desc id="mtp-desc">A target Hugging Face checkpoint passes preflight and compatibility checks, then branches depending on whether MTP tensors exist. The prepared model produces BF16 directly or uses temporary F16 for quantization before smoke tests and local runtime.</desc>
+            <defs>
+              <linearGradient id="bundle" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0064e0"/><stop offset="1" stop-color="#22a8c5"/></linearGradient>
+            </defs>
+            <path d="M148 124 H270" stroke="#6f8791" stroke-width="2"/>
+            <path d="M350 180 V245 H476" stroke="#66b6ff" stroke-width="2" fill="none"/>
+            <path d="M350 180 V348 H410" stroke="#66b6ff" stroke-width="2" fill="none"/>
+            <path d="M590 245 H690" stroke="#66b6ff" stroke-width="2"/>
+            <path d="M590 390 H650 V310 H690" stroke="#66b6ff" stroke-width="2" fill="none"/>
+            <path d="M760 356 V442" stroke="#66b6ff" stroke-width="2"/>
+            <rect x="30" y="76" width="118" height="96" rx="20" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+            <text x="89" y="112" text-anchor="middle" fill="#b9cad0" font-size="11" font-weight="800">TARGET</text>
+            <text x="89" y="138" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">HF CHECKPOINT</text>
+            <rect x="270" y="72" width="160" height="108" rx="28" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".18"/>
+            <text x="350" y="111" text-anchor="middle" fill="#b9cad0" font-size="11" font-weight="800">CHECK</text>
+            <text x="350" y="137" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">MTP / NEXTN</text>
+            <text x="350" y="158" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">PRESENT?</text>
+            <rect x="476" y="207" width="114" height="76" rx="18" fill="#bcefdc"/>
+            <text x="533" y="239" text-anchor="middle" fill="#1c2b33" font-size="11" font-weight="800">YES</text>
+            <text x="533" y="260" text-anchor="middle" fill="#1c2b33" font-size="13" font-weight="700">VALIDATE INDEX</text>
+            <text x="367" y="332" text-anchor="middle" fill="#8da4ad" font-size="11" font-weight="800">NO</text>
+            <rect x="410" y="310" width="180" height="80" rx="18" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+            <text x="500" y="340" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">INDEX DISCOVERY</text>
+            <text x="500" y="362" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">MINIMAL SHARDS → INJECT</text>
+            <rect x="690" y="216" width="140" height="140" rx="30" fill="url(#bundle)"/>
+            <text x="760" y="266" text-anchor="middle" fill="#dcefff" font-size="11" font-weight="800">PREPARED</text>
+            <text x="760" y="291" text-anchor="middle" fill="#fff" font-size="16" font-weight="750">MODEL</text>
+            <text x="760" y="313" text-anchor="middle" fill="#fff" font-size="16" font-weight="750">BUNDLE</text>
+            <rect x="580" y="442" width="160" height="80" rx="18" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+            <text x="660" y="472" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">DIRECT PATH</text>
+            <text x="660" y="497" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">BF16 GGUF</text>
+            <rect x="754" y="442" width="118" height="80" rx="18" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+            <text x="813" y="472" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">QUANT SOURCE</text>
+            <text x="813" y="497" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">TEMP F16</text>
+            <rect x="250" y="556" width="500" height="54" rx="16" fill="#fff" fill-opacity=".08"/>
+            <text x="500" y="589" text-anchor="middle" fill="#d5e4e9" font-size="13" font-weight="700">CHAT-TEMPLATE SMOKE TEST → LLAMA.CPP LOCAL RUNTIME</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container dataset-layout">
+        <div>
+          <p class="eyebrow">Dataset universe</p>
+          <h2>24 curated collections. Five ways to build capability.</h2>
+          <p>Every dataset remains independently reviewable for schema, license, task fit, and quality filters before use.</p>
+          <a class="button outline" href="../High-fidelity%20Dataset/">Explore the dataset catalog</a>
+        </div>
+        <div class="dataset-cloud">
+          <article class="dataset-group"><small>REASONING</small><h3>Chain-of-thought and scored supervision</h3><p>Natural reasoning, distilled traces, and compact validation sets.</p></article>
+          <article class="dataset-group"><small>STEM</small><h3>Mathematics and science</h3><p>Structured problem solving and evaluation-oriented examples.</p></article>
+          <article class="dataset-group"><small>CODE</small><h3>Coding and algorithms</h3><p>Competitive programming and agentic coding traces.</p></article>
+          <article class="dataset-group"><small>CHAT</small><h3>Instruction and multi-turn</h3><p>ShareGPT-style and conversational supervision.</p></article>
+          <article class="dataset-group"><small>DOMAINS</small><h3>Targeted capability data</h3><p>Finance, economics, IELTS feedback, and focused tasks.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <div><p class="eyebrow">Training lab</p><h2>Five released ways to start.</h2></div>
+          <p>Browser-first SFT, Python-based GSPO-style post-training, and a compact GRPO path—each kept close to its executable code.</p>
+        </header>
+        <div class="recipe-grid">
+          <article class="recipe"><span class="method">SFT · COLAB</span><h3>Qwopus3.5 27B</h3><p>Beginner-friendly LoRA fine-tuning.</p><a href="../train_code/Qwopus3-5-27b-Colab.ipynb">Open recipe →</a></article>
+          <article class="recipe"><span class="method">GSPO · PYTHON</span><h3>Qwopus3.6 27B</h3><p>Inspectable rewards and export paths.</p><a href="../train_code/Qwopus3.6-27B-GSPO/">Open recipe →</a></article>
+          <article class="recipe"><span class="method">SFT · KAGGLE</span><h3>Qwen3.5 Neo 9B</h3><p>Compact browser-run training.</p><a href="../train_code/Qwen3.5-9B-Neo-Kaggle.ipynb">Open recipe →</a></article>
+          <article class="recipe"><span class="method">SFT · KAGGLE</span><h3>Qwopus3.5 35B-A3B</h3><p>MoE-oriented fine-tuning path.</p><a href="../train_code/Qwopus-3.5-35B-A3B-Kaggle.ipynb">Open recipe →</a></article>
+          <article class="recipe"><span class="method">GRPO · KAGGLE</span><h3>Llama3.2-R1 3B</h3><p>Small-scale reinforcement learning.</p><a href="../train_code/Llama-3.2-3B-R1-Zero-GRPO.ipynb">Open recipe →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue-soft">
+      <div class="container">
+        <header class="section-head single"><div><p class="eyebrow">Open tooling</p><h2>Products, teaching, and release engineering in one place.</h2></div></header>
+        <div class="resource-grid">
+          <article class="resource"><small>DATA</small><h3>Distillation workflows</h3><a href="../data_processing_code/">Prepare data →</a></article>
+          <article class="resource"><small>DEPLOY</small><h3>Qwen MTP GGUF skill</h3><a href="../qwen-mtp-gguf/">Ship locally →</a></article>
+          <article class="resource"><small>GUIDES</small><h3>Long-form learning library</h3><a href="../guidePDF/">Read the guides →</a></article>
+          <article class="resource"><small>AUTOMATE</small><h3>Codex goal templates</h3><a href="../codex-goals/">Use a goal →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <h2>Study the code. Adapt the workflow. Ship your model.</h2>
+        <p>Qwopus is presented as a product family, but remains grounded in open checkpoints, readable recipes, and local release tooling.</p>
+        <div class="closing-actions">
+          <a class="button light" href="https://huggingface.co/Jackrong" target="_blank" rel="noreferrer">Explore Jackrong on HF</a>
+          <a class="button secondary" href="../README.md">Open the learning guide</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="footnotes">
+      <div class="container">
+        <p><strong>Data note.</strong> Hugging Face downloads and likes are dynamic public signals captured on 2026-07-11. The 439K figure belongs to <a href="https://huggingface.co/Jackrong/Qwopus3.6-27B-Coder-Compat-MTP-GGUF">Qwopus3.6-27B-Coder-Compat-MTP-GGUF</a>. Model-card benchmark and speed figures are intentionally not promoted as universal third-party results in this prototype.</p>
+        <p><strong>Metadata note.</strong> Some MTP GGUF repositories may display 0.4B / 0.5B or CLIP-oriented metadata because the auxiliary head or projector dominates repository metadata. Those values are not presented here as the full model size.</p>
+        <p><strong>Architecture note.</strong> The diagrams distinguish documented product facts from tutorial defaults and optional release paths. The current local MTP workflow uses direct BF16 plus temporary F16 quantization branches; it is not described as a single bundled BF16 source for the full matrix.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>Jackrong · Open Model Lab</strong><br>Open knowledge for people building open models.</div>
+      <div class="footer-links">
+        <a href="../README.md">Guide</a>
+        <a href="../docs/README_zh.md">中文</a>
+        <a href="../docs/README_ko.md">한국어</a>
+        <a href="../docs/README_ja.md">日本語</a>
+        <a href="https://huggingface.co/Jackrong" target="_blank" rel="noreferrer">Hugging Face</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="preview-tag">Qwopus3.6 · product + learning showcase</div>
+</body>
+</html>
